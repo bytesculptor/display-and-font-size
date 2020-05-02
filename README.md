@@ -9,4 +9,4 @@ Next planned features:
 - change the scale on a widget
 
 
-![](/images/screenshot.png)
+![](/images/screenshot.png | width=100)
