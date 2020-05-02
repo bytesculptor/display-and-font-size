@@ -25,19 +25,6 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-
-        <Button
-            android:id="@+id/btScale"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="24dp"
-            android:onClick="onBtClicked"
-            android:text="Scale font"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <TextView
             android:id="@+id/tvMetric1"
             android:layout_width="wrap_content"
@@ -45,6 +32,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:text="width"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,6 +43,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="height"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvMetric1" />
 
@@ -62,21 +51,25 @@
             android:id="@+id/tvWidth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
             android:text="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toEndOf="@+id/tvMetric5"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:text="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvWidth" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toEndOf="@+id/tvMetric5"
+            app:layout_constraintTop_toBottomOf="@+id/tvWidth"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvMetric3"
@@ -85,6 +78,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="xdpi"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvMetric2" />
 
@@ -95,6 +89,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="ydpi"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvMetric3" />
 
@@ -105,6 +100,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="densityDpi"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvMetric4" />
 
@@ -112,31 +108,37 @@
             android:id="@+id/tvXdpi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:text="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvHeight" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toEndOf="@+id/tvMetric5"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeight"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvYdpi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:text="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvXdpi" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toEndOf="@+id/tvMetric5"
+            app:layout_constraintTop_toBottomOf="@+id/tvXdpi"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvDensity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:text="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvYdpi" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toEndOf="@+id/tvMetric5"
+            app:layout_constraintTop_toBottomOf="@+id/tvYdpi"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvFont"
@@ -145,6 +147,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:text="font scale"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvMetric5" />
 
@@ -152,11 +155,78 @@
             android:id="@+id/tvFontScale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:text="0"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toEndOf="@+id/tvMetric5"
+            app:layout_constraintTop_toBottomOf="@+id/tvDensity"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/bt_085"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/button_inactive"
+            android:enabled="true"
+            android:onClick="onBtClicked"
+            android:text="0.85"
+            app:layout_constraintEnd_toStartOf="@+id/bt_100"
+            app:layout_constraintTop_toBottomOf="@+id/space2"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/bt_100"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/button_inactive"
+            android:enabled="true"
+            android:onClick="onBtClicked"
+            android:text="1.00"
+            app:layout_constraintEnd_toStartOf="@+id/space2"
+            app:layout_constraintTop_toBottomOf="@+id/space2"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/bt_115"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_inactive"
+            android:enabled="true"
+            android:onClick="onBtClicked"
+            android:text="1.15"
+            app:layout_constraintStart_toEndOf="@+id/space2"
+            app:layout_constraintTop_toBottomOf="@+id/space2"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/bt_130"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_inactive"
+            android:enabled="true"
+            android:onClick="onBtClicked"
+            android:text="1.30"
+            app:layout_constraintStart_toEndOf="@+id/bt_115"
+            app:layout_constraintTop_toBottomOf="@+id/space2"
+            tools:ignore="HardcodedText" />
+
+        <Space
+            android:id="@+id/space2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDensity" />
+            app:layout_constraintTop_toBottomOf="@+id/tvFont" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

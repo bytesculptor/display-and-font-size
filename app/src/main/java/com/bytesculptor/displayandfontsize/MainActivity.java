@@ -20,22 +20,20 @@ import androidx.core.content.ContextCompat;
 
 import com.bytesculptor.displayandfontsize.databinding.ActivityMainBinding;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_WRITE_SETTINGS = 2;
     private boolean writePermissionGranted;
-
-    private static final String PREF_FONT_SCALE = "FONT_SCALE";
-    private final float[] scale = {0.85f, 1.0f, 1.15f, 1.3f};
-    private int idx = 0;
-    private float currentFontScale;
 
     private final float FONT_SIZE_SMALL = 0.85f;
     private final float FONT_SIZE_DEFAULT = 1.0f;
     private final float FONT_SIZE_LARGE = 1.15f;
     private final float FONT_SIZE_HUGE = 1.3f;
 
-    //private TextView tvMetric_width, tvMetric_height, tvMetric_xdpi, tvMetric_ydpi, tvMetric_density, tvFontScale;
+    private final float[] scale = {FONT_SIZE_SMALL, FONT_SIZE_DEFAULT, FONT_SIZE_LARGE, FONT_SIZE_HUGE};
+    private int idx = 0;
+
     private ActivityMainBinding mActivityMainBinding;
 
 
@@ -60,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             writePermissionGranted = true;
         }
         getValuesAndShowOnActivity();
+        updateButtonBackground();
     }
 
 
@@ -91,32 +90,68 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        float size = getResources().getConfiguration().densityDpi;
-        float currentScale = getResources().getConfiguration().fontScale;
+        switch (view.getId()) {
+            case R.id.bt_085:
+                idx = 0;
+                break;
 
-        if (compareFloatEqual(currentScale, scale[0], 0.02f)) {
-            idx = 1;
-        } else if (compareFloatEqual(currentScale, scale[1], 0.02f)) {
-            idx = 2;
-        } else if (compareFloatEqual(currentScale, scale[2], 0.02f)) {
-            idx = 3;
-        } else if (compareFloatEqual(currentScale, scale[3], 0.02f)) {
-            idx = 0;
-        } else {
-            idx = 1;
+            case R.id.bt_100:
+                idx = 1;
+                break;
+
+            case R.id.bt_115:
+                idx = 2;
+                break;
+
+            case R.id.bt_130:
+                idx = 3;
+                break;
         }
 
         boolean res = Settings.System.putFloat(this.getContentResolver(), Settings.System.FONT_SCALE, scale[idx]);
-
         if (res) {
             Toast.makeText(this, "set font to " + scale[idx] + ", idx = " + idx, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "failed set font", Toast.LENGTH_SHORT).show();
         }
+        updateButtonBackground();
     }
 
 
-    @SuppressLint("DefaultLocale")
+    public void updateButtonBackground() {
+        switch (idx) {
+            case 0:
+                mActivityMainBinding.bt085.setBackgroundResource((R.drawable.button_active));
+                mActivityMainBinding.bt100.setBackgroundResource((R.drawable.button_inactive));
+                mActivityMainBinding.bt115.setBackgroundResource((R.drawable.button_inactive));
+                mActivityMainBinding.bt130.setBackgroundResource((R.drawable.button_inactive));
+                break;
+
+            case 1:
+                mActivityMainBinding.bt085.setBackgroundResource((R.drawable.button_inactive));
+                mActivityMainBinding.bt100.setBackgroundResource((R.drawable.button_active));
+                mActivityMainBinding.bt115.setBackgroundResource((R.drawable.button_inactive));
+                mActivityMainBinding.bt130.setBackgroundResource((R.drawable.button_inactive));
+                break;
+
+            case 2:
+                mActivityMainBinding.bt085.setBackgroundResource((R.drawable.button_inactive));
+                mActivityMainBinding.bt100.setBackgroundResource((R.drawable.button_inactive));
+                mActivityMainBinding.bt115.setBackgroundResource((R.drawable.button_active));
+                mActivityMainBinding.bt130.setBackgroundResource((R.drawable.button_inactive));
+                break;
+
+            case 3:
+                mActivityMainBinding.bt085.setBackgroundResource((R.drawable.button_inactive));
+                mActivityMainBinding.bt100.setBackgroundResource((R.drawable.button_inactive));
+                mActivityMainBinding.bt115.setBackgroundResource((R.drawable.button_inactive));
+                mActivityMainBinding.bt130.setBackgroundResource((R.drawable.button_active));
+                break;
+        }
+    }
+
+
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
     private void getValuesAndShowOnActivity() {
         DisplayMetrics disp = this.getResources().getDisplayMetrics();
 
@@ -128,6 +163,19 @@ public class MainActivity extends AppCompatActivity {
 
         float currentScale = getResources().getConfiguration().fontScale;
         mActivityMainBinding.tvFontScale.setText(currentScale + "");
+        float size = getResources().getConfiguration().densityDpi;
+
+        if (compareFloatEqual(currentScale, scale[0], 0.02f)) {
+            idx = 0;
+        } else if (compareFloatEqual(currentScale, scale[1], 0.02f)) {
+            idx = 1;
+        } else if (compareFloatEqual(currentScale, scale[2], 0.02f)) {
+            idx = 2;
+        } else if (compareFloatEqual(currentScale, scale[3], 0.02f)) {
+            idx = 3;
+        } else {
+            idx = 0;
+        }
     }
 
 
@@ -151,5 +199,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-}
 
+}
