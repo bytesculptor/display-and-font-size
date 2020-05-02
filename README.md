@@ -8,4 +8,4 @@ Next planned features:
 - change the display scale too (it seems there is currently no way to do this programmatically, there is a feature request pending at Google)
 - change the scale on a widget
 
-<img src="hhttps://github.com/bytesculptor/display-and-font-size/tree/master/images/screenshot.png" width="150">
+<img src="https://github.com/bytesculptor/display-and-font-size/blob/master/images/screenshot.png" width="130">
